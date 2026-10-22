@@ -1,0 +1,701 @@
+{
+  "run": {
+    "bbox_wgs84": [
+      -96.45,
+      30.52,
+      -96.2,
+      30.75
+    ],
+    "place": "Bryan\u2013College Station, Texas",
+    "year": 2021,
+    "resolution_m": 20.0,
+    "seed": 42,
+    "crs": "EPSG:32614",
+    "grid_shape": [
+      1305,
+      1230
+    ],
+    "block_km": 2.0,
+    "cv_buffer_m": 0.0,
+    "test_fraction_of_blocks": 0.2,
+    "buffer_m": 200.0,
+    "n_train_per_class": 2000,
+    "n_test_per_class": 500,
+    "runtime_seconds": 170.3,
+    "data_seconds": 81.7,
+    "scenes": {
+      "summer": {
+        "window": "2021-04-01/2021-09-30",
+        "items": [
+          "S2A_MSIL2A_20210506T165851_R069_T14RQU_20210508T080256",
+          "S2A_MSIL2A_20210506T165851_R069_T14RQV_20210508T081127",
+          "S2A_MSIL2A_20210725T165901_R069_T14RQU_20210726T144450",
+          "S2A_MSIL2A_20210725T165901_R069_T14RQV_20210726T143956",
+          "S2A_MSIL2A_20210824T165851_R069_T14RQV_20210825T051302",
+          "S2A_MSIL2A_20210923T170031_R069_T14RQU_20210924T125233",
+          "S2A_MSIL2A_20210923T170031_R069_T14RQV_20210924T125501",
+          "S2B_MSIL2A_20210401T165849_R069_T14RQU_20210402T171802",
+          "S2B_MSIL2A_20210401T165849_R069_T14RQV_20210402T161720",
+          "S2B_MSIL2A_20210411T165839_R069_T14RQU_20210412T101156",
+          "S2B_MSIL2A_20210411T165839_R069_T14RQV_20210412T104718",
+          "S2B_MSIL2A_20210908T165839_R069_T14RQU_20210909T065412"
+        ],
+        "median_clear_observations": 6.0,
+        "pixels_without_clear_observation": 4347
+      },
+      "winter": {
+        "window": "2020-12-01/2021-02-28",
+        "items": [
+          "S2A_MSIL2A_20201207T170711_R069_T14RQU_20201208T035053",
+          "S2A_MSIL2A_20201207T170711_R069_T14RQV_20201208T034400",
+          "S2A_MSIL2A_20201217T170721_R069_T14RQU_20201218T073426",
+          "S2A_MSIL2A_20201217T170721_R069_T14RQV_20201220T113225",
+          "S2A_MSIL2A_20210116T170641_R069_T14RQU_20210119T050134",
+          "S2A_MSIL2A_20210116T170641_R069_T14RQV_20210119T050207",
+          "S2B_MSIL2A_20201222T170719_R069_T14RQU_20210104T084403",
+          "S2B_MSIL2A_20201222T170719_R069_T14RQV_20201225T081258",
+          "S2B_MSIL2A_20210131T170529_R069_T14RQU_20210201T201753",
+          "S2B_MSIL2A_20210131T170529_R069_T14RQV_20210201T201725",
+          "S2B_MSIL2A_20210220T170329_R069_T14RQU_20210221T070842",
+          "S2B_MSIL2A_20210220T170329_R069_T14RQV_20210221T082224"
+        ],
+        "median_clear_observations": 6.0,
+        "pixels_without_clear_observation": 2408
+      },
+      "worldcover_items": [
+        "ESA_WorldCover_10m_2021_v200_N30W099"
+      ],
+      "crs": "EPSG:32614"
+    }
+  },
+  "labels": {
+    "classes": [
+      10,
+      30,
+      40,
+      50,
+      60,
+      80
+    ],
+    "class_names": [
+      "Tree cover",
+      "Grassland",
+      "Cropland",
+      "Built-up",
+      "Bare / sparse vegetation",
+      "Permanent water bodies"
+    ],
+    "worldcover_fractions_before_merge": {
+      "10": 0.40743,
+      "30": 0.3978,
+      "40": 0.04443,
+      "50": 0.13465,
+      "60": 0.00877,
+      "80": 0.00689,
+      "90": 2e-05
+    },
+    "merged": {},
+    "dropped": [
+      90
+    ],
+    "share_of_valid_pixels_excluded": 0.0
+  },
+  "samples": {
+    "train": 12000,
+    "train_blocks": 142,
+    "train_clustered": 12026,
+    "cluster_px": 5,
+    "test_blocks": 36,
+    "test_population_pixels": 351542
+  },
+  "cross_validation": {
+    "random_forest|scattered": {
+      "random_cv": {
+        "overall_accuracy": 0.8519,
+        "overall_accuracy_sd": 0.0084,
+        "balanced_accuracy": 0.8521,
+        "balanced_accuracy_sd": 0.0077,
+        "macro_f1": 0.8519
+      },
+      "spatial_cv": {
+        "overall_accuracy": 0.8363,
+        "overall_accuracy_sd": 0.0047,
+        "balanced_accuracy": 0.8356,
+        "balanced_accuracy_sd": 0.0079,
+        "macro_f1": 0.8357
+      },
+      "test": {
+        "overall_accuracy": 0.8074,
+        "kappa": 0.7306,
+        "macro_f1": 0.6801,
+        "balanced_accuracy": 0.841
+      }
+    },
+    "hist_gradient_boosting|scattered": {
+      "random_cv": {
+        "overall_accuracy": 0.8521,
+        "overall_accuracy_sd": 0.0066,
+        "balanced_accuracy": 0.8523,
+        "balanced_accuracy_sd": 0.006,
+        "macro_f1": 0.8523
+      },
+      "spatial_cv": {
+        "overall_accuracy": 0.8336,
+        "overall_accuracy_sd": 0.0053,
+        "balanced_accuracy": 0.8323,
+        "balanced_accuracy_sd": 0.0096,
+        "macro_f1": 0.833
+      },
+      "test": {
+        "overall_accuracy": 0.8168,
+        "kappa": 0.7432,
+        "macro_f1": 0.6964,
+        "balanced_accuracy": 0.8486
+      }
+    },
+    "random_forest|clustered": {
+      "random_cv": {
+        "overall_accuracy": 0.8936,
+        "overall_accuracy_sd": 0.0063,
+        "balanced_accuracy": 0.8936,
+        "balanced_accuracy_sd": 0.0061,
+        "macro_f1": 0.894
+      },
+      "spatial_cv": {
+        "overall_accuracy": 0.8442,
+        "overall_accuracy_sd": 0.028,
+        "balanced_accuracy": 0.8334,
+        "balanced_accuracy_sd": 0.0316,
+        "macro_f1": 0.8271
+      },
+      "test": {
+        "overall_accuracy": 0.8168,
+        "kappa": 0.7416,
+        "macro_f1": 0.6886,
+        "balanced_accuracy": 0.8338
+      }
+    }
+  },
+  "block_size_sweep_random_forest": {
+    "scattered": [
+      {
+        "block_km": 0,
+        "overall_accuracy": 0.8519,
+        "overall_accuracy_sd": 0.0084,
+        "balanced_accuracy": 0.8521,
+        "balanced_accuracy_sd": 0.0077,
+        "macro_f1": 0.8519
+      },
+      {
+        "block_km": 0.5,
+        "overall_accuracy": 0.8402,
+        "overall_accuracy_sd": 0.0125,
+        "balanced_accuracy": 0.8402,
+        "balanced_accuracy_sd": 0.0124,
+        "macro_f1": 0.8402
+      },
+      {
+        "block_km": 1.0,
+        "overall_accuracy": 0.8398,
+        "overall_accuracy_sd": 0.0115,
+        "balanced_accuracy": 0.839,
+        "balanced_accuracy_sd": 0.0138,
+        "macro_f1": 0.8377
+      },
+      {
+        "block_km": 2.0,
+        "overall_accuracy": 0.8363,
+        "overall_accuracy_sd": 0.0047,
+        "balanced_accuracy": 0.8356,
+        "balanced_accuracy_sd": 0.0079,
+        "macro_f1": 0.8357
+      },
+      {
+        "block_km": 4.0,
+        "overall_accuracy": 0.834,
+        "overall_accuracy_sd": 0.0118,
+        "balanced_accuracy": 0.8242,
+        "balanced_accuracy_sd": 0.0252,
+        "macro_f1": 0.8206
+      }
+    ],
+    "clustered": [
+      {
+        "block_km": 0,
+        "overall_accuracy": 0.8936,
+        "overall_accuracy_sd": 0.0063,
+        "balanced_accuracy": 0.8936,
+        "balanced_accuracy_sd": 0.0061,
+        "macro_f1": 0.894
+      },
+      {
+        "block_km": 0.5,
+        "overall_accuracy": 0.8547,
+        "overall_accuracy_sd": 0.018,
+        "balanced_accuracy": 0.8551,
+        "balanced_accuracy_sd": 0.0214,
+        "macro_f1": 0.853
+      },
+      {
+        "block_km": 1.0,
+        "overall_accuracy": 0.856,
+        "overall_accuracy_sd": 0.0162,
+        "balanced_accuracy": 0.855,
+        "balanced_accuracy_sd": 0.022,
+        "macro_f1": 0.8524
+      },
+      {
+        "block_km": 2.0,
+        "overall_accuracy": 0.8442,
+        "overall_accuracy_sd": 0.028,
+        "balanced_accuracy": 0.8334,
+        "balanced_accuracy_sd": 0.0316,
+        "macro_f1": 0.8271
+      },
+      {
+        "block_km": 4.0,
+        "overall_accuracy": 0.8317,
+        "overall_accuracy_sd": 0.0227,
+        "balanced_accuracy": 0.808,
+        "balanced_accuracy_sd": 0.049,
+        "macro_f1": 0.7932
+      }
+    ]
+  },
+  "test": {
+    "random_forest": {
+      "census_of_test_blocks": {
+        "overall_accuracy": 0.8074,
+        "kappa": 0.7306,
+        "balanced_accuracy": 0.841,
+        "macro_f1": 0.6801,
+        "per_class": {
+          "Tree cover": {
+            "users_accuracy": 0.9134,
+            "producers_accuracy": 0.8539,
+            "f1": 0.8826
+          },
+          "Grassland": {
+            "users_accuracy": 0.8843,
+            "producers_accuracy": 0.7595,
+            "f1": 0.8172
+          },
+          "Cropland": {
+            "users_accuracy": 0.6652,
+            "producers_accuracy": 0.8703,
+            "f1": 0.7541
+          },
+          "Built-up": {
+            "users_accuracy": 0.7085,
+            "producers_accuracy": 0.7618,
+            "f1": 0.7342
+          },
+          "Bare / sparse vegetation": {
+            "users_accuracy": 0.2238,
+            "producers_accuracy": 0.8438,
+            "f1": 0.3537
+          },
+          "Permanent water bodies": {
+            "users_accuracy": 0.3749,
+            "producers_accuracy": 0.9565,
+            "f1": 0.5387
+          }
+        }
+      },
+      "olofsson_2014": {
+        "sample_size": 3000,
+        "sample_counts_rows_map_cols_reference": [
+          [
+            463,
+            26,
+            4,
+            7,
+            0,
+            0
+          ],
+          [
+            39,
+            446,
+            6,
+            9,
+            0,
+            0
+          ],
+          [
+            22,
+            145,
+            313,
+            19,
+            1,
+            0
+          ],
+          [
+            67,
+            78,
+            5,
+            345,
+            4,
+            1
+          ],
+          [
+            2,
+            86,
+            16,
+            293,
+            103,
+            0
+          ],
+          [
+            164,
+            106,
+            5,
+            33,
+            15,
+            177
+          ]
+        ],
+        "overall_accuracy": 0.8059,
+        "overall_accuracy_ci95": 0.0145,
+        "per_class": {
+          "Tree cover": {
+            "users_accuracy": 0.926,
+            "users_accuracy_ci95": 0.023,
+            "producers_accuracy": 0.8573,
+            "producers_accuracy_ci95": 0.0202,
+            "mapped_area_km2": 50.55,
+            "estimated_area_km2": 54.61,
+            "estimated_area_ci95_km2": 1.72,
+            "worldcover_census_area_km2": 54.08,
+            "ci_covers_census": true
+          },
+          "Grassland": {
+            "users_accuracy": 0.892,
+            "users_accuracy_ci95": 0.0272,
+            "producers_accuracy": 0.7605,
+            "producers_accuracy_ci95": 0.0216,
+            "mapped_area_km2": 43.39,
+            "estimated_area_km2": 50.89,
+            "estimated_area_ci95_km2": 1.83,
+            "worldcover_census_area_km2": 50.52,
+            "ci_covers_census": true
+          },
+          "Cropland": {
+            "users_accuracy": 0.626,
+            "users_accuracy_ci95": 0.0425,
+            "producers_accuracy": 0.8773,
+            "producers_accuracy_ci95": 0.0491,
+            "mapped_area_km2": 15.59,
+            "estimated_area_km2": 11.13,
+            "estimated_area_ci95_km2": 0.9,
+            "worldcover_census_area_km2": 11.92,
+            "ci_covers_census": true
+          },
+          "Built-up": {
+            "users_accuracy": 0.69,
+            "users_accuracy_ci95": 0.0406,
+            "producers_accuracy": 0.7424,
+            "producers_accuracy_ci95": 0.0298,
+            "mapped_area_km2": 23.54,
+            "estimated_area_km2": 21.88,
+            "estimated_area_ci95_km2": 1.25,
+            "worldcover_census_area_km2": 21.89,
+            "ci_covers_census": true
+          },
+          "Bare / sparse vegetation": {
+            "users_accuracy": 0.206,
+            "users_accuracy_ci95": 0.0355,
+            "producers_accuracy": 0.818,
+            "producers_accuracy_ci95": 0.111,
+            "mapped_area_km2": 5.88,
+            "estimated_area_km2": 1.48,
+            "estimated_area_ci95_km2": 0.29,
+            "worldcover_census_area_km2": 1.56,
+            "ci_covers_census": true
+          },
+          "Permanent water bodies": {
+            "users_accuracy": 0.354,
+            "users_accuracy_ci95": 0.042,
+            "producers_accuracy": 0.926,
+            "producers_accuracy_ci95": 0.1345,
+            "mapped_area_km2": 1.66,
+            "estimated_area_km2": 0.64,
+            "estimated_area_ci95_km2": 0.12,
+            "worldcover_census_area_km2": 0.65,
+            "ci_covers_census": true
+          }
+        }
+      }
+    },
+    "hist_gradient_boosting": {
+      "census_of_test_blocks": {
+        "overall_accuracy": 0.8168,
+        "kappa": 0.7432,
+        "balanced_accuracy": 0.8486,
+        "macro_f1": 0.6964,
+        "per_class": {
+          "Tree cover": {
+            "users_accuracy": 0.9206,
+            "producers_accuracy": 0.8538,
+            "f1": 0.886
+          },
+          "Grassland": {
+            "users_accuracy": 0.8805,
+            "producers_accuracy": 0.7757,
+            "f1": 0.8248
+          },
+          "Cropland": {
+            "users_accuracy": 0.7174,
+            "producers_accuracy": 0.9011,
+            "f1": 0.7988
+          },
+          "Built-up": {
+            "users_accuracy": 0.7132,
+            "producers_accuracy": 0.7689,
+            "f1": 0.74
+          },
+          "Bare / sparse vegetation": {
+            "users_accuracy": 0.221,
+            "producers_accuracy": 0.834,
+            "f1": 0.3494
+          },
+          "Permanent water bodies": {
+            "users_accuracy": 0.4149,
+            "producers_accuracy": 0.9583,
+            "f1": 0.5791
+          }
+        }
+      },
+      "olofsson_2014": {
+        "sample_size": 3000,
+        "sample_counts_rows_map_cols_reference": [
+          [
+            461,
+            30,
+            0,
+            9,
+            0,
+            0
+          ],
+          [
+            53,
+            427,
+            9,
+            11,
+            0,
+            0
+          ],
+          [
+            19,
+            122,
+            348,
+            10,
+            1,
+            0
+          ],
+          [
+            69,
+            68,
+            6,
+            355,
+            2,
+            0
+          ],
+          [
+            3,
+            88,
+            20,
+            287,
+            100,
+            2
+          ],
+          [
+            143,
+            133,
+            8,
+            8,
+            14,
+            194
+          ]
+        ],
+        "overall_accuracy": 0.8049,
+        "overall_accuracy_ci95": 0.0152,
+        "per_class": {
+          "Tree cover": {
+            "users_accuracy": 0.922,
+            "users_accuracy_ci95": 0.0235,
+            "producers_accuracy": 0.8369,
+            "producers_accuracy_ci95": 0.0218,
+            "mapped_area_km2": 50.15,
+            "estimated_area_km2": 55.25,
+            "estimated_area_ci95_km2": 1.85,
+            "worldcover_census_area_km2": 54.08,
+            "ci_covers_census": true
+          },
+          "Grassland": {
+            "users_accuracy": 0.854,
+            "users_accuracy_ci95": 0.031,
+            "producers_accuracy": 0.7707,
+            "producers_accuracy_ci95": 0.0228,
+            "mapped_area_km2": 44.5,
+            "estimated_area_km2": 49.31,
+            "estimated_area_ci95_km2": 1.96,
+            "worldcover_census_area_km2": 50.52,
+            "ci_covers_census": true
+          },
+          "Cropland": {
+            "users_accuracy": 0.696,
+            "users_accuracy_ci95": 0.0404,
+            "producers_accuracy": 0.8858,
+            "producers_accuracy_ci95": 0.0437,
+            "mapped_area_km2": 14.97,
+            "estimated_area_km2": 11.76,
+            "estimated_area_ci95_km2": 0.83,
+            "worldcover_census_area_km2": 11.92,
+            "ci_covers_census": true
+          },
+          "Built-up": {
+            "users_accuracy": 0.71,
+            "users_accuracy_ci95": 0.0398,
+            "producers_accuracy": 0.7501,
+            "producers_accuracy_ci95": 0.0313,
+            "mapped_area_km2": 23.6,
+            "estimated_area_km2": 22.34,
+            "estimated_area_ci95_km2": 1.29,
+            "worldcover_census_area_km2": 21.89,
+            "ci_covers_census": true
+          },
+          "Bare / sparse vegetation": {
+            "users_accuracy": 0.2,
+            "users_accuracy_ci95": 0.0351,
+            "producers_accuracy": 0.876,
+            "producers_accuracy_ci95": 0.0964,
+            "mapped_area_km2": 5.88,
+            "estimated_area_km2": 1.34,
+            "estimated_area_ci95_km2": 0.25,
+            "worldcover_census_area_km2": 1.56,
+            "ci_covers_census": true
+          },
+          "Permanent water bodies": {
+            "users_accuracy": 0.388,
+            "users_accuracy_ci95": 0.0428,
+            "producers_accuracy": 0.9613,
+            "producers_accuracy_ci95": 0.0517,
+            "mapped_area_km2": 1.51,
+            "estimated_area_km2": 0.61,
+            "estimated_area_ci95_km2": 0.07,
+            "worldcover_census_area_km2": 0.65,
+            "ci_covers_census": true
+          }
+        }
+      }
+    }
+  },
+  "grouped_permutation_importance": [
+    {
+      "group": "winter indices (NDVI, NDMI, NDWI, MNDWI)",
+      "features": [
+        "winter_NDVI",
+        "winter_NDMI",
+        "winter_NDWI",
+        "winter_MNDWI"
+      ],
+      "mean_drop_balanced_accuracy": 0.0414,
+      "sd": 0.003
+    },
+    {
+      "group": "summer indices (NDVI, NDMI, NDWI, MNDWI)",
+      "features": [
+        "summer_NDVI",
+        "summer_NDMI",
+        "summer_NDWI",
+        "summer_MNDWI"
+      ],
+      "mean_drop_balanced_accuracy": 0.0171,
+      "sd": 0.0035
+    },
+    {
+      "group": "winter SWIR (B11, B12)",
+      "features": [
+        "winter_B11",
+        "winter_B12"
+      ],
+      "mean_drop_balanced_accuracy": 0.0093,
+      "sd": 0.0023
+    },
+    {
+      "group": "summer SWIR (B11, B12)",
+      "features": [
+        "summer_B11",
+        "summer_B12"
+      ],
+      "mean_drop_balanced_accuracy": 0.0071,
+      "sd": 0.0035
+    },
+    {
+      "group": "winter visible (B02-B04)",
+      "features": [
+        "winter_B02",
+        "winter_B03",
+        "winter_B04"
+      ],
+      "mean_drop_balanced_accuracy": 0.0043,
+      "sd": 0.0022
+    },
+    {
+      "group": "summer red edge (B05-B07)",
+      "features": [
+        "summer_B05",
+        "summer_B06",
+        "summer_B07"
+      ],
+      "mean_drop_balanced_accuracy": 0.001,
+      "sd": 0.003
+    },
+    {
+      "group": "NDVI summer minus winter",
+      "features": [
+        "NDVI_summer_minus_winter"
+      ],
+      "mean_drop_balanced_accuracy": -0.0017,
+      "sd": 0.0021
+    },
+    {
+      "group": "winter red edge (B05-B07)",
+      "features": [
+        "winter_B05",
+        "winter_B06",
+        "winter_B07"
+      ],
+      "mean_drop_balanced_accuracy": -0.0022,
+      "sd": 0.0012
+    },
+    {
+      "group": "winter NIR (B08, B8A)",
+      "features": [
+        "winter_B08",
+        "winter_B8A"
+      ],
+      "mean_drop_balanced_accuracy": -0.0045,
+      "sd": 0.0011
+    },
+    {
+      "group": "summer NIR (B08, B8A)",
+      "features": [
+        "summer_B08",
+        "summer_B8A"
+      ],
+      "mean_drop_balanced_accuracy": -0.0057,
+      "sd": 0.0015
+    },
+    {
+      "group": "summer visible (B02-B04)",
+      "features": [
+        "summer_B02",
+        "summer_B03",
+        "summer_B04"
+      ],
+      "mean_drop_balanced_accuracy": -0.0076,
+      "sd": 0.0025
+    }
+  ]
+}
