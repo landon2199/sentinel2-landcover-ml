@@ -1,0 +1,14 @@
+[project]
+name = "landcover"
+version = "0.1.0"
+description = "Sentinel-2 land-cover classification with spatially honest accuracy assessment"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Landon Melesky" }]
+
+[tool.setuptools]
+packages = ["landcover"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
