@@ -128,3 +128,7 @@ tests/         unit tests, including the Olofsson et al. (2014) worked example
 - **Data access:** [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/) STAC API and its Azure-hosted cloud-optimized GeoTIFFs.
 
 Code is released under the [MIT License](LICENSE). © 2026 Landon Melesky.
+
+## AI assistance
+
+Built with an AI coding assistant (Claude Code, by Anthropic). Commits made with it carry its `Co-Authored-By` line.
